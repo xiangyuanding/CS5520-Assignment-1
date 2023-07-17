@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import React, { useState } from 'react'
 import colors from "../Color.js"
+import PressButton from '../components/PressButton.js'
 
 export default function Starting({setCurrStatus, setEmailPhone, initEmail, initPhone}) {
   const [email, setEmail] = useState(initEmail);

@@ -1,4 +1,4 @@
-import { Pressable, View, Text } from 'react-native'
+import { StyleSheet, Pressable, View, Text } from 'react-native'
 import React from 'react'
 import colors from "../Color.js"
 
@@ -9,7 +9,7 @@ export default function PressButton({handlePress, text, textColor}) {
           backgroundColor: pressed ? colors.pressedColor : colors.transparent,
         },
         styles.button,
-      ]} onPress={reset}>
+      ]} onPress={handlePress}>
       <Text style={textColor}>{text}</Text>
     </Pressable>
   )

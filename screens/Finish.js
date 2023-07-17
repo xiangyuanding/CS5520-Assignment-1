@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
 import colors from "../Color.js"
+import PressButton from '../components/PressButton.js'
 
 export default function Finish( {reset, phone, componentNum} ) {
 
