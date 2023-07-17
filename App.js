@@ -16,6 +16,9 @@ export default function App() {
     setPhone("");
     setCurrStatus(0);
   }
+  function setCurrStatusCallBack(status){
+    setCurrStatus(status);
+  }
   function setEmailPhone(email, phone){
     setEmail(email);
     setPhone(phone);
@@ -23,10 +26,10 @@ export default function App() {
 
   function ConditionRender({componentNum}){
     if (componentNum==0){
-      return <Starting setCurrStatus={setCurrStatus} setEmailPhone={setEmailPhone} initEmail={email} initPhone={phone} />;
+      return <Starting setCurrStatus={setCurrStatusCallBack} setEmailPhone={setEmailPhone} initEmail={email} initPhone={phone} />;
     }
     else if (componentNum==1){
-      return <Confirm setCurrStatus={setCurrStatus} email={email} phone={phone} />;
+      return <Confirm setCurrStatus={setCurrStatusCallBack} email={email} phone={phone} />;
     }
     else{
       return <Finish phone={phone} componentNum={componentNum} reset={reset}/>;
