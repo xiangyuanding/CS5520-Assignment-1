@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import React, { useState } from 'react'
-import colors from "./Color.js"
+import colors from "../Color.js"
+import PressButton from '../components/PressButton.js'
 
 export default function Confirm({setCurrStatus, email, phone}) {
   return (
@@ -9,30 +10,10 @@ export default function Confirm({setCurrStatus, email, phone}) {
       <Text style={styles.text}>{email}</Text>
       <Text style={styles.text}>{phone}</Text>
       <Text style={styles.text}>Please confirm they are correct</Text>
-      <Pressable style={({pressed}) => [
-          {
-            backgroundColor: pressed ? colors.pressedColor : colors.transparent,
-          },
-          styles.button,
-        ]} onPress={()=>setCurrStatus(0)}>
-        <Text style={styles.redText}>Go back</Text>
-      </Pressable>
-      <Pressable style={({pressed}) => [
-          {
-            backgroundColor: pressed ? colors.pressedColor : colors.transparent,
-          },
-          styles.button,
-        ]} onPress={()=>setCurrStatus(2)}>
-        <Text style={styles.blueText}>Confirm</Text>
-      </Pressable>      
-      <Pressable style={({pressed}) => [
-          {
-            backgroundColor: pressed ? colors.pressedColor : colors.transparent,
-          },
-          styles.button,
-        ]} onPress={()=>setCurrStatus(3)}>
-        <Text style={styles.blueText}>Finish later</Text>
-      </Pressable>
+      <PressButton handlePress={()=>setCurrStatus(0)} text={"Go back"} textColor={styles.redText} /> 
+      <PressButton handlePress={()=>setCurrStatus(2)} text={"Confirm"} textColor={styles.blueText} />     
+      <PressButton handlePress={()=>setCurrStatus(3)} text={"Finish later"} textColor={styles.blueText} />  
+
     </View>
   )
 }

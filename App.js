@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
-import Starting from './components/Starting';
-import Confirm from './components/Confirm';
-import Finish from './components/Finish';
+import Starting from './screens/Starting';
+import Confirm from './screens/Confirm';
+import Finish from './screens/Finish';
 import { LinearGradient } from 'expo-linear-gradient';
-import colors from "./components/Color.js"
+import colors from "./Color.js"
 
 export default function App() {
   const [currStatus, setCurrStatus] = useState(0);

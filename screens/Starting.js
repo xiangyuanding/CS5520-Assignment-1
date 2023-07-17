@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import React, { useState } from 'react'
-import colors from "./Color.js"
+import colors from "../Color.js"
 
 export default function Starting({setCurrStatus, setEmailPhone, initEmail, initPhone}) {
   const [email, setEmail] = useState(initEmail);
@@ -51,22 +51,8 @@ export default function Starting({setCurrStatus, setEmailPhone, initEmail, initP
         <TextInput style={styles.inputContainer} onChangeText={updatePhone} value={phone}/>
         {phoneVisable ? (<Text style={{color:colors.hiddenText,}}>please input a valid phone number</Text>):(<Text></Text>)}
         <View style={styles.buttonContainer}>
-          <Pressable style={({pressed}) => [
-              {
-                backgroundColor: pressed ? colors.pressedColor : colors.transparent,
-              },
-              styles.button,
-            ]} onPress={reset}>
-            <Text style={styles.redText}>reset</Text>
-          </Pressable>
-          <Pressable style={({pressed}) => [
-              {
-                backgroundColor: pressed ? colors.pressedColor : colors.transparent,
-              },
-              styles.button,
-            ]} onPress={signUp}>
-            <Text style={styles.blueText}>Sign up</Text>
-          </Pressable>
+          <PressButton handlePress={reset} text={"reset"} textColor={styles.redText} /> 
+          <PressButton handlePress={signUp} text={"Sign up"} textColor={styles.blueText} /> 
         </View>
 
 

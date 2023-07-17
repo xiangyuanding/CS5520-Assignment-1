@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
-import colors from "./Color.js"
+import colors from "../Color.js"
 
 export default function Finish( {reset, phone, componentNum} ) {
 
@@ -11,14 +11,7 @@ export default function Finish( {reset, phone, componentNum} ) {
           <Text style={styles.text}>Thank you for signing up, here's a picture for you (based on the last digit of your phone number).</Text>
           <Image source={{uri: `https://picsum.photos/id/${phone[phone.length-1]}/100/100`}} style={{width: 100, height: 100}}/>
         </View>
-        <Pressable style={({pressed}) => [
-            {
-              backgroundColor: pressed ? colors.pressedColor : colors.transparent,
-            },
-            styles.button,
-          ]} onPress={reset}>
-          <Text style={styles.blueText}>Start again</Text>
-        </Pressable>
+        <PressButton handlePress={reset} text={"Start again"} textColor={styles.blueText} /> 
       </View>
     )
   } 
@@ -27,16 +20,9 @@ export default function Finish( {reset, phone, componentNum} ) {
       <View style={styles.container}>
         <View style={styles.topContainer}>
           <Text style={styles.text}>Sorry to see you go.</Text>
-          <Image source={require("./Sad-Face-Emoji.png")} style={{width: 100, height: 100}}/>
+          <Image source={require("../res/Sad-Face-Emoji.png")} style={{width: 100, height: 100}}/>
         </View>
-        <Pressable style={({pressed}) => [
-            {
-              backgroundColor: pressed ? colors.pressedColor : colors.transparent,
-            },
-            styles.button,
-          ]} onPress={reset}>
-          <Text style={styles.blueText}>Start again</Text>
-        </Pressable>
+        <PressButton handlePress={reset} text={"Start again"} textColor={styles.blueText} /> 
       </View>
     )
   }
