@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
+import colors from "./Color.js"
 
 export default function Finish( {reset, phone, componentNum} ) {
 
@@ -12,7 +13,7 @@ export default function Finish( {reset, phone, componentNum} ) {
         </View>
         <Pressable style={({pressed}) => [
             {
-              backgroundColor: pressed ? 'rgba(146, 146, 146, 0.979)' : '#ffffff00',
+              backgroundColor: pressed ? colors.pressedColor : colors.transparent,
             },
             styles.button,
           ]} onPress={reset}>
@@ -30,7 +31,7 @@ export default function Finish( {reset, phone, componentNum} ) {
         </View>
         <Pressable style={({pressed}) => [
             {
-              backgroundColor: pressed ? 'rgba(146, 146, 146, 0.979)' : '#ffffff00',
+              backgroundColor: pressed ? colors.pressedColor : colors.transparent,
             },
             styles.button,
           ]} onPress={reset}>
@@ -44,17 +45,17 @@ export default function Finish( {reset, phone, componentNum} ) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0)',
+    backgroundColor: colors.transparent,
     alignItems: 'center',
     fontSize: 20,
   },
   topContainer: {
     marginTop: 50,
-    backgroundColor: '#b5d4fdff',
+    backgroundColor: colors.containerBackGround,
     justifyContent: 'center',
     width: 325,
     height: 275,
-    shadowColor: "#777676",
+    shadowColor: colors.shadowColor,
     elevation: 10,
     borderRadius: 15,
     alignItems: "center",

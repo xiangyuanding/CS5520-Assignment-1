@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import React, { useState } from 'react'
+import colors from "./Color.js"
 
 export default function Confirm({setCurrStatus, email, phone}) {
   return (
@@ -10,7 +11,7 @@ export default function Confirm({setCurrStatus, email, phone}) {
       <Text style={styles.text}>Please confirm they are correct</Text>
       <Pressable style={({pressed}) => [
           {
-            backgroundColor: pressed ? 'rgba(146, 146, 146, 0.979)' : '#ffffff00',
+            backgroundColor: pressed ? colors.pressedColor : colors.transparent,
           },
           styles.button,
         ]} onPress={()=>setCurrStatus(0)}>
@@ -18,7 +19,7 @@ export default function Confirm({setCurrStatus, email, phone}) {
       </Pressable>
       <Pressable style={({pressed}) => [
           {
-            backgroundColor: pressed ? 'rgba(146, 146, 146, 0.979)' : '#ffffff00',
+            backgroundColor: pressed ? colors.pressedColor : colors.transparent,
           },
           styles.button,
         ]} onPress={()=>setCurrStatus(2)}>
@@ -26,7 +27,7 @@ export default function Confirm({setCurrStatus, email, phone}) {
       </Pressable>      
       <Pressable style={({pressed}) => [
           {
-            backgroundColor: pressed ? 'rgba(146, 146, 146, 0.979)' : '#ffffff00',
+            backgroundColor: pressed ? colors.pressedColor : colors.transparent,
           },
           styles.button,
         ]} onPress={()=>setCurrStatus(3)}>
@@ -38,11 +39,11 @@ export default function Confirm({setCurrStatus, email, phone}) {
 
 const styles = StyleSheet.create({
   topContainer: {
-    backgroundColor: '#b5d4fdff',
+    backgroundColor: colors.containerBackGround,
     justifyContent: 'center',
     width: 275,
     height: 400,
-    shadowColor: "#777676",
+    shadowColor: colors.shadowColor,
     elevation: 10,
     borderRadius: 15,
   },

@@ -5,6 +5,7 @@ import Starting from './components/Starting';
 import Confirm from './components/Confirm';
 import Finish from './components/Finish';
 import { LinearGradient } from 'expo-linear-gradient';
+import colors from "./components/Color.js"
 
 export default function App() {
   const [currStatus, setCurrStatus] = useState(0);
@@ -34,7 +35,7 @@ export default function App() {
 
   return (
     <LinearGradient
-        colors={['#07ee1a', '#014e24', '#0947f1']}
+        colors={[colors.top, colors.middle, colors.bottom]}
         style={styles.container}>
       <StatusBar style="auto" />
       <ConditionRender componentNum={currStatus} />
@@ -46,7 +47,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d4bbfc',
     alignItems: 'center',
     justifyContent: 'center',
   },

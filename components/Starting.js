@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import React, { useState } from 'react'
+import colors from "./Color.js"
 
 export default function Starting({setCurrStatus, setEmailPhone, initEmail, initPhone}) {
   const [email, setEmail] = useState(initEmail);
@@ -44,15 +45,15 @@ export default function Starting({setCurrStatus, setEmailPhone, initEmail, initP
 
         <Text style={styles.text}>Email: </Text>
         <TextInput style={styles.inputContainer} onChangeText={updateEmail} value={email}/>
-        {emailVisable ? (<Text style={{color:"#9b9b9b",}}>please input a valid email</Text>):(<Text></Text>)}
+        {emailVisable ? (<Text style={{color:colors.hiddenText,}}>please input a valid email</Text>):(<Text></Text>)}
         
         <Text style={styles.text}>Phone number: </Text>
         <TextInput style={styles.inputContainer} onChangeText={updatePhone} value={phone}/>
-        {phoneVisable ? (<Text style={{color:"#9b9b9b",}}>please input a valid phone number</Text>):(<Text></Text>)}
+        {phoneVisable ? (<Text style={{color:colors.hiddenText,}}>please input a valid phone number</Text>):(<Text></Text>)}
         <View style={styles.buttonContainer}>
           <Pressable style={({pressed}) => [
               {
-                backgroundColor: pressed ? 'rgba(146, 146, 146, 0.979)' : '#ffffff00',
+                backgroundColor: pressed ? colors.pressedColor : colors.transparent,
               },
               styles.button,
             ]} onPress={reset}>
@@ -60,7 +61,7 @@ export default function Starting({setCurrStatus, setEmailPhone, initEmail, initP
           </Pressable>
           <Pressable style={({pressed}) => [
               {
-                backgroundColor: pressed ? 'rgba(146, 146, 146, 0.979)' : '#ffffff00',
+                backgroundColor: pressed ? colors.pressedColor : colors.transparent,
               },
               styles.button,
             ]} onPress={signUp}>
@@ -77,7 +78,7 @@ export default function Starting({setCurrStatus, setEmailPhone, initEmail, initP
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0)',
+    backgroundColor: colors.transparent,
     alignItems: 'center',
     fontSize: 20,
   },
@@ -116,13 +117,14 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   topContainer: {
-    backgroundColor: '#b5d4fdff',
+    backgroundColor: colors.containerBackGround,
     alignItems: 'flex-start',
     justifyContent: 'center',
     width: 275,
     height: 400,
     paddingLeft: 40,
-    shadowColor: "#777676",
+    shadowColor: colors.shadowColor,
+    shadowOpacity: 5,
     elevation: 10,
     borderRadius: 15,
   },
